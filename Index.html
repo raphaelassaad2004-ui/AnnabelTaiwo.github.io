@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Find Me</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f7f7f7;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #phaseText {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 80%;
+    }
+
+    #hiddenImage {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div id="phaseText">Phase 1: Placeholder description...</div>
+<img id="hiddenImage" src="YOUR_IMAGE.jpg">
+
+<script>
+    const descriptions = [
+        "Phase 1: Placeholder description...",
+        "Phase 2: Placeholder description...",
+        "Phase 3: Placeholder description...",
+        "Phase 4: Placeholder description...",
+        "Phase 5: Placeholder description...",
+        "Phase 6: Placeholder description...",
+        "Phase 7: Placeholder description..."
+    ];
+
+    let phase = 0;
+    const totalPhases = 7;
+    const img = document.getElementById("hiddenImage");
+    const text = document.getElementById("phaseText");
+
+    function moveImage() {
+        const maxX = window.innerWidth - 80;
+        const maxY = window.innerHeight - 80;
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+        img.style.left = x + "px";
+        img.style.top = y + "px";
+    }
+
+    function nextPhase() {
+        phase++;
+        if (phase < totalPhases) {
+            text.textContent = descriptions[phase];
+            moveImage();
+        } else {
+            text.textContent = "You found them all!";
+            img.style.display = "none";
+        }
+    }
+
+    img.addEventListener("click", nextPhase);
+
+    moveImage();
+</script>
+
+</body>
+</html>
