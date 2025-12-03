@@ -36,8 +36,7 @@
 <body>
 
 <div id="phaseText">Phase 1: Placeholder description...</div>
-<img id="hiddenImage"
-    src="Screenshot_20251202-050047.'click    alt="click to continue">
+<img id="hiddenImage" src="Screenshot_20251202-050047.jpg" alt="Click to continue">
 
 <script>
     const descriptions = [
@@ -50,14 +49,14 @@
         "Phase 7: Placeholder description..."
     ];
 
-    let src = 0;
+    let phase = 0;
     const totalPhases = 7;
     const img = document.getElementById("hiddenImage");
     const text = document.getElementById("phaseText");
 
     function moveImage() {
-        const maxX = window.innerWidth - 80;
-        const maxY = window.innerHeight - 80;
+        const maxX = window.innerWidth - img.offsetWidth;
+        const maxY = window.innerHeight - img.offsetHeight;
         const x = Math.random() * maxX;
         const y = Math.random() * maxY;
         img.style.left = x + "px";
